@@ -13,7 +13,7 @@ header{
 
 .logo{
     
-    padding-left: 60px;
+    margin-left: 60px;
     
 }
 
@@ -27,8 +27,12 @@ h1{
     display: inline-block;
 }
 
+ul li{
+    margin-right: 20px;
+}
+
 .links{
-    padding-right: 75px;
+    margin-right: 75px;
     align-items:center;
     display: flex;
    
