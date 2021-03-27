@@ -1,27 +1,44 @@
+require('dotenv').config();
+const express = require('express');
+const hbs = require('hbs');
 const request = require('request');
 
+const app = express();
 
-const options = {
-    Headers: {'content-type' : 'application/x-www-form-urlencoded'},
-    grant_type:"authorization_code",
-    code: "AQDsX5w7Jy8Bf9HmgT73hsxX-YvxDfceMrp9WD23VLOpwR35_XxNxWFFZ_uSNp7Gep8qFmhnFywfQFz7QK1cNNzaoDeFqOiJGxnzZAqDYydDQv-fi2XXAZE1DcUrImMPaY5p7dAgx9gcmeGahIkhLvj4YedffA",
-    redirect_uri: "https://google.com",
-    authorization: "MDYyZjY4YzNiMmNkNGQxM2FjODE3NDAxNjA5ZjRhZDY6NjU5MDkwZWYzYTE1NDU0Mzk1MWE5NzU4ZjlmYjk1YWQ="
-};
+app.use(express.static('public'));
 
+app.set('view engine', 'hbs');
 
-request.post({url:'https://accounts.spotify.com/api/token', json: true}, options,(error, response)=>{
-
-    if(error)
-    {
-        console.log(error);
-    }
-    else
-    {
-        console.log(response);
-    }
-
+app.listen(3000, ()=>{
+    console.log('server is listenging on port 3000');    
 });
+
+app.get('/',(req, res)=>{
+    
+    res.render();
+});
+
+// const options = {
+//     Headers: {'content-type' : 'application/x-www-form-urlencoded'},
+//     grant_type:"authorization_code",
+//     code: "AQDsX5w7Jy8Bf9HmgT73hsxX-YvxDfceMrp9WD23VLOpwR35_XxNxWFFZ_uSNp7Gep8qFmhnFywfQFz7QK1cNNzaoDeFqOiJGxnzZAqDYydDQv-fi2XXAZE1DcUrImMPaY5p7dAgx9gcmeGahIkhLvj4YedffA",
+//     redirect_uri: "https://google.com",
+//     authorization: "MDYyZjY4YzNiMmNkNGQxM2FjODE3NDAxNjA5ZjRhZDY6NjU5MDkwZWYzYTE1NDU0Mzk1MWE5NzU4ZjlmYjk1YWQ="
+// };
+
+
+// request.post({url:'https://accounts.spotify.com/api/token', json: true}, options,(error, response)=>{
+
+//     if(error)
+//     {
+//         console.log(error);
+//     }
+//     else
+//     {
+//         console.log(response);
+//     }
+
+// });
 
 // https://accounts.spotify.com/authorize?client_id=062f68c3b2cd4d13ac817401609f4ad6&response_type=code&redirect_uri=https://google.com
 
