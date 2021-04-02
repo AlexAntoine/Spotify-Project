@@ -15,6 +15,9 @@ app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
+const clientId = {id:process.env.CLIENT_ID};
+const redirect_uri = {uri:'http%3A%2F%2Flocalhost%3A3000%2F'};
+
 app.get('/',(req, res)=>{
     
     res.render('home');
