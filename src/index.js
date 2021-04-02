@@ -6,23 +6,25 @@ const request = require('request');
 
 const app = express();
 
-const viewsPath = path.join(__dirname, '../templates/views');
+const viewsPath = path.join(__dirname, '../templates');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
-app.use(express.static(path.join(__dirname, '../public/css')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
-app.listen(3000, ()=>{
-    console.log('server is listenging on port 3000');    
-});
-
 app.get('/',(req, res)=>{
     
     res.render('home');
 });
+
+
+app.listen(3000, ()=>{
+    console.log('server is listenging on port 3000');    
+});
+
 
 // const options = {
 //     Headers: {'content-type' : 'application/x-www-form-urlencoded'},
