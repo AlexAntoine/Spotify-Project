@@ -5,3 +5,5 @@ Create Ui. Figure how to consistenty connect with the app and pull data.
 created the first row for the gallery
 
 partials header is not found for some reason. Need to fix that 
+
+add the URL to the action button in home.hbs
