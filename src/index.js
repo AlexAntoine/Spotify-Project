@@ -18,6 +18,7 @@ hbs.registerPartials(partialsPath);
 app.get('/',(req, res)=>{
     
     res.render('home');
+    console.log(res);
 });
 
 
