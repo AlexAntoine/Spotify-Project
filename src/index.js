@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const request = require('request');
+const { RSA_NO_PADDING } = require('constants');
 
 const app = express();
 
@@ -21,7 +22,7 @@ const redirect_uri = {uri:'http%3A%2F%2Flocalhost%3A3000%2F'};
 app.get('/',(req, res)=>{
     
     res.render('home');
-    console.log(res);
+    // console.log(res);
 });
 
 
