@@ -16,7 +16,6 @@ app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
-const clientId = {id:process.env.CLIENT_ID};
 const redirect_uri = {uri:'http%3A%2F%2Flocalhost%3A3000%2F'};
 
 app.get('/',(req, res)=>{
@@ -25,8 +24,12 @@ app.get('/',(req, res)=>{
     // console.log(res);
 });
 
+app.get(`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000`,(req, res)=>{
 
-app.listen(3000, ()=>{
+});
+
+
+app.listen(4000, ()=>{
     console.log('server is listenging on port 3000');    
 });
 
@@ -42,7 +45,7 @@ app.listen(3000, ()=>{
 
 // request.post({url:'https://accounts.spotify.com/api/token', json: true}, options,(error, response)=>{
 
-//     if(error)
+//     if(error) 
 //     {
 //         console.log(error);
 //     }
