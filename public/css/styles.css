@@ -48,6 +48,13 @@ a{
     text-decoration: none;
 }
 
+#login{
+    background-color: transparent;
+    color: pink;
+    border: none;
+    margin-right: 21px;
+}
+
 li{
     list-style: none;
     color: pink;
