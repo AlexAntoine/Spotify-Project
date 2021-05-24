@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const request = require('request');
-const { RSA_NO_PADDING } = require('constants');
 
 const app = express();
 
@@ -24,13 +23,18 @@ app.get('/',(req, res)=>{
     // console.log(res);
 });
 
-app.get(`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000`,(req, res)=>{
+// app.get(`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000`,(req, res)=>{
+
+// });
+
+app.get('/spotify', (req, res)=>{
+    
+    res.send('hello')
 
 });
 
-
 app.listen(4000, ()=>{
-    console.log('server is listenging on port 3000');    
+    console.log('server is listenging on port 4000');    
 });
 
 
