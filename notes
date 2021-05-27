@@ -7,3 +7,6 @@ created the first row for the gallery
 partials header is not found for some reason. Need to fix that 
 
 add the URL to the action button in home.hbs
+
+5/24/2021
+Try to create an api route that leads straight to the authenticaion page 

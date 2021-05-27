@@ -27,8 +27,13 @@ app.get('/spotify', (req, res)=> {
 
     request({url: `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000`});
 
-});
+// });
 
+app.get('/spotify', (req, res)=>{
+    
+    res.send('hello')
+
+});
 
 app.listen(4000, ()=>{
     console.log('server is listenging on port 4000');    
