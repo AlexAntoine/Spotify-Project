@@ -4,6 +4,14 @@ const link  = document.querySelector('#login');
 
 link.addEventListener('click',(e)=>{
 
-    console.log('testing');
+    // fetch('../src/index.js/spotify')
+
+    fetch('/spotify').then((result)=>{
+
+        console.log(result);
+
+    }).catch((error)=>{
+        console.log(error);
+    });
 });
 
