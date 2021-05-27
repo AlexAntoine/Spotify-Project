@@ -19,15 +19,13 @@ const redirect_uri = {uri:'http%3A%2F%2Flocalhost%3A3000%2F'};
 
 app.get('/',(req, res)=>{
     
-    res.render('home');
-    // console.log(res);
+    res.render('home', {
+        client_id: process.env.CLIENT_ID
+    
+    });
+
 });
 
-app.get('/spotify', (req, res)=> {
-
-    request({url: `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000`});
-
-// });
 
 app.get('/spotify', (req, res)=>{
     
