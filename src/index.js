@@ -2,8 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-const request = require('request');
-const { reset } = require('nodemon');
+const axios = require('axios');
 
 const app = express();
 
@@ -23,7 +22,7 @@ app.get('/',(req, res)=>{
     res.render('home', {
         client_id: process.env.CLIENT_ID
     });
-    
+
    const code = req.url.substring(7,169)
 
 });
@@ -37,6 +36,20 @@ app.get('/:code', (req, res)=>{
 app.listen(4000, ()=>{
     console.log('server is listenging on port 4000');    
 });
+
+const callApi = (auth_code) => {
+
+    request({url:'https://accounts.spotify.com/api/token'},)
+
+    const options = {
+        Header:{ 'content-type': 'application/x-www-form-urlencoded'},
+        grant_type:"authorization_code",
+        code: auth_code,
+        redirect_uri: 'http%3A%2F%2Flocalhost%3A4000',
+        //authorization: 
+
+    }
+}
 
 
 // const options = {
