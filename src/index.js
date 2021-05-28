@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const request = require('request');
+const { reset } = require('nodemon');
 
 const app = express();
 
@@ -21,17 +22,17 @@ app.get('/',(req, res)=>{
     
     res.render('home', {
         client_id: process.env.CLIENT_ID
-    
     });
-
-});
-
-
-app.get('/spotify', (req, res)=>{
     
-    res.send('hello')
+   const code = req.url.substring(7,169)
 
 });
+
+app.get('/:code', (req, res)=>{
+
+    // console.log(req.url);
+});
+
 
 app.listen(4000, ()=>{
     console.log('server is listenging on port 4000');    
