@@ -15,8 +15,6 @@ app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
-const redirect_uri = {uri:'http%3A%2F%2Flocalhost%3A3000%2F'};
-
 app.get('/',(req, res)=>{
     
     res.render('home', {
@@ -25,11 +23,8 @@ app.get('/',(req, res)=>{
 
    const code = req.url.substring(7,169)
 
-});
+   callApi(code);
 
-app.get('/:code', (req, res)=>{
-
-    // console.log(req.url);
 });
 
 
@@ -40,15 +35,22 @@ app.listen(4000, ()=>{
 const callApi = (auth_code) => {
 
     const url = 'https://accounts.spotify.com/api/token';
+    const options ={
 
-    axios.get(url,{
+        method: 'GET',
         Header: {'content-type': 'application/x-www-form-urlencoded'},
         grant_type:"authorization_code",
         code: auth_code,
         redirect_uri: 'http%3A%2F%2Flocalhost%3A4000',
-        //authorization
+        authorization: "MDYyZjY4YzNiMmNkNGQxM2FjODE3NDAxNjA5ZjRhZDY6NjU5MDkwZWYzYTE1NDU0Mzk1MWE5NzU4ZjlmYjk1YWQ="
+    }
+
+    axios.post(url,options,{
+        
     }).then((response) =>{
         console.log(response);
+    }).catch((error)=>{
+        console.log(error);
     })
 }
 
