@@ -39,16 +39,17 @@ app.listen(4000, ()=>{
 
 const callApi = (auth_code) => {
 
-    request({url:'https://accounts.spotify.com/api/token'},)
+    const url = 'https://accounts.spotify.com/api/token';
 
-    const options = {
-        Header:{ 'content-type': 'application/x-www-form-urlencoded'},
+    axios.get(url,{
+        Header: {'content-type': 'application/x-www-form-urlencoded'},
         grant_type:"authorization_code",
         code: auth_code,
         redirect_uri: 'http%3A%2F%2Flocalhost%3A4000',
-        //authorization: 
-
-    }
+        //authorization
+    }).then((response) =>{
+        console.log(response);
+    })
 }
 
 
